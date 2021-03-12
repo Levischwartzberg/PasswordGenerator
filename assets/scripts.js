@@ -41,7 +41,7 @@ function getLength() {
     //console.log(numChar + 1);
     if ((numChar < 8) || (numChar > 128)) {
         alert("You must choose an integer from 8 to 128.");
-        return false;
+        return getLength();
     }
     return numChar;
 }
@@ -67,7 +67,14 @@ function getInfo() {
     if (numbers === true) {
         options[3] = true;
     }
-    return options;
+
+    if (options[0] === false && options[1] === false && options[2] === false && options[3] === false) {
+        alert("You password must include at least one of the four character options.");
+        return getInfo();
+    }
+    else {
+        return options; 
+    }
 }
 
 //takes in user provided info to generate a random password

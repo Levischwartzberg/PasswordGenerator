@@ -1,6 +1,6 @@
 // Assignment Code
-//var generateBtn = document.querySelector("#generate");
-var generateBtn = document.getElementById("generate");
+var generateBtn = document.querySelector("#generate");
+//var generateBtn = document.getElementById("generate");
 
 //A random special character is generated from the array if the user specifies that they want special characters
 function generateSpecial() {
@@ -81,8 +81,10 @@ function getInfo() {
 function performLogic(numChar,options) {
     //an empty array that password values are appended to
     var passcode = [];
+    
     //a default false array that is updated when a specific character type is added, to be compared to the desired character types in the option array
     var verifier = [false,false,false,false];
+    
     //chooses a number 0-3 for each desired character in the password
     //calls the specific character generator function corresponding to the randomly generated number and appends to passcode array
     //if a particular character is not desired, the iteration does not count and the loop continues to run (else {i=i-1})
@@ -92,7 +94,7 @@ function performLogic(numChar,options) {
             if (options[0] === true) {
                 passcode.push( generateSpecial() );
                 verifier[0] = true;
-                console.log(verifier);
+                    //console.log(verifier);
                 console.log(passcode);
             }
             else {
@@ -103,7 +105,7 @@ function performLogic(numChar,options) {
             if (options[1] === true) {
                 passcode.push( generateLower() );
                 verifier[1] = true;
-                console.log(verifier);
+                    //console.log(verifier);
                 console.log(passcode);
             }
             else {
@@ -114,7 +116,7 @@ function performLogic(numChar,options) {
             if (options[2] === true) {
                 passcode.push( generateUpper() );
                 verifier[2] = true;
-                console.log(verifier);
+                    //console.log(verifier);
                 console.log(passcode);
             }
             else {
@@ -125,7 +127,7 @@ function performLogic(numChar,options) {
             if (options[3] === true) {
                 passcode.push( generateNumber() );
                 verifier[3] = true;
-                console.log(verifier);
+                    //console.log(verifier);
                 console.log(passcode);
             }
             else {
@@ -133,7 +135,7 @@ function performLogic(numChar,options) {
             }
         }
     }
-    console.log(verifier + " " + options);
+        //console.log(verifier + " " + options);
 
     //the options array is compared to the verifier array to check for equivalence
     //if the arrays are not equal, that indicates that despite the user asking for a particular character type, by random chance, that character type did not appear initially
@@ -167,7 +169,7 @@ function generatePassword() {
 
     //assigns the result of getInfo to options, which creates an array representing the desired character types
     var options = getInfo();
-    console.log(options);
+        //console.log(options);
     
     //passes the user provided information into a function that randomly generates a password
     var password = performLogic(numChar, options);
